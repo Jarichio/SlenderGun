@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://db0bparh6ptni"]
+
+[ext_resource type="PackedScene" uid="uid://blkwyo4ckaxhe" path="res://Mesh/blender/tree-1.blend" id="1_o5edh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="tree-1" parent="." instance=ExtResource("1_o5edh")]

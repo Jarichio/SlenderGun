@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://sva6kt3ekdkb"]
+
+[ext_resource type="PackedScene" uid="uid://cvxotd0o3kg3p" path="res://Mesh/blender/grass-1.blend" id="1_4yvfv"]
+
+[node name="Grass" type="MultiMeshInstance3D"]
+
+[node name="grass-1" parent="." instance=ExtResource("1_4yvfv")]
+visibility_parent = NodePath("..")
