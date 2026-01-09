@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr2uji5yvph5g"]
+
+[ext_resource type="Script" uid="uid://b75il4lv651wd" path="res://scripts/slenderman.gd" id="1_xj8yx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xj8yx"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aeja0"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 2.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e15q2"]
+margin = 0.0
+radius = 0.3
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e15q2"]
+radius = 1.0
+height = 3.0
+
+[node name="Slenderman" type="CharacterBody3D"]
+script = ExtResource("1_xj8yx")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_xj8yx")
+debug_color = Color(0.8, 0, 0, 0.41960785)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="VisualModel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3000001, 0)
+mesh = SubResource("CylinderMesh_aeja0")
+
+[node name="HeightCast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("SphereShape3D_e15q2")
+target_position = Vector3(0, 2, 0)
+debug_shape_custom_color = Color(0, 0.71319693, 0.5163879, 1)
+
+[node name="BehaviourTicker" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="NavigationAgent" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="KillArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 0, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillArea"]
+shape = SubResource("CapsuleShape3D_e15q2")
+debug_color = Color(0.95755154, 2.5990605e-06, 0.5345746, 0.41960785)
+debug_fill = false
+
+[node name="Eyes" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="SightCast" type="RayCast3D" parent="Eyes"]
+target_position = Vector3(0, 0, 0)
+
+[connection signal="timeout" from="BehaviourTicker" to="." method="tick_ai"]

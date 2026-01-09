@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://1kmh3vu412g"]
+
+[ext_resource type="FontFile" uid="uid://lsmiqp6j5wjt" path="res://art/fonts/Mansalva-Regular.ttf" id="1_xwcrg"]
+
+[resource]
+default_font = ExtResource("1_xwcrg")

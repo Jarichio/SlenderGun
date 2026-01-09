@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 @export var horizontal_rotator: Node3D 
 @export var vertical_rotator: Node3D
@@ -7,6 +7,8 @@ extends Node3D
 @export var max_angle: float = 90.
 
 func _input(event: InputEvent) -> void:
+	if not is_multiplayer_authority():
+		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		horizontal_rotator.rotate_y(-event.relative.x * sensitivity)
 		vertical_rotator.rotate_x(-event.relative.y * sensitivity)
