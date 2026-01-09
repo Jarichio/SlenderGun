@@ -1,11 +1,11 @@
 [gd_scene load_steps=25 format=3 uid="uid://mgp02mkor0at"]
 
-[ext_resource type="Texture2D" uid="uid://bm1p8rdgr3xu" path="res://art/textures/green-grass-1024x1024.png" id="1_a0tk4"]
-[ext_resource type="PackedScene" uid="uid://sva6kt3ekdkb" path="res://scenes/enviornment/Grass.tscn" id="1_r3fl7"]
-[ext_resource type="PackedScene" uid="uid://bsacankxa0rw6" path="res://scenes/enviornment/Grass2.tscn" id="2_jka67"]
-[ext_resource type="Texture2D" uid="uid://t076qol5ykhj" path="res://art/textures/broken-wood-ground-1024x1024.png" id="2_r3fl7"]
-[ext_resource type="PackedScene" uid="uid://db0bparh6ptni" path="res://scenes/enviornment/Tree1.tscn" id="3_i5arm"]
-[ext_resource type="PackedScene" uid="uid://cb4srfaly8w6t" path="res://scenes/player.tscn" id="6_i5arm"]
+[ext_resource type="PackedScene" uid="uid://sva6kt3ekdkb" path="res://scenes/enviornment/Grass.tscn" id="1_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bsacankxa0rw6" path="res://scenes/enviornment/Grass2.tscn" id="2_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://db0bparh6ptni" path="res://scenes/enviornment/Tree1.tscn" id="3_tipki"]
+[ext_resource type="Texture2D" uid="uid://bm1p8rdgr3xu" path="res://art/textures/green-grass-1024x1024.png" id="4_85g3d"]
+[ext_resource type="Texture2D" uid="uid://t076qol5ykhj" path="res://art/textures/broken-wood-ground-1024x1024.png" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://cb4srfaly8w6t" path="res://scenes/player.tscn" id="6_ya4ey"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i5arm"]
 sky_top_color = Color(0.01855933, 0.048802026, 0.120509915, 1)
@@ -19,10 +19,12 @@ sky_material = SubResource("ProceduralSkyMaterial_i5arm")
 [sub_resource type="Environment" id="Environment_a0tk4"]
 background_mode = 2
 sky = SubResource("Sky_wc5p8")
-fog_light_color = Color(0.91926855, 0.92770237, 0.9408332, 1)
-fog_light_energy = 0.15
-fog_density = 0.12
-volumetric_fog_emission_energy = 0.0
+tonemap_mode = 4
+tonemap_white = 6.0
+fog_density = 0.0035
+fog_depth_curve = 0.20306334
+volumetric_fog_density = 0.1165
+volumetric_fog_temporal_reprojection_enabled = false
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_i5arm"]
 
@@ -67,10 +69,11 @@ _shader_parameters = {
 &"projection_threshold": 0.8
 }
 world_background = 0
+show_navigation = true
 
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_r3fl7"]
 name = "Grass"
-scene_file = ExtResource("1_r3fl7")
+scene_file = ExtResource("1_tefeu")
 density = 3.0
 cast_shadows = 0
 last_lod = 0
@@ -80,7 +83,7 @@ lod0_range = 64.0
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_i5arm"]
 name = "Grass2"
 id = 1
-scene_file = ExtResource("2_jka67")
+scene_file = ExtResource("2_o6xl0")
 cast_shadows = 0
 last_lod = 0
 last_shadow_lod = 0
@@ -89,7 +92,7 @@ lod0_range = 64.0
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_jka67"]
 name = "Tree1"
 id = 2
-scene_file = ExtResource("3_i5arm")
+scene_file = ExtResource("3_tipki")
 density = 0.01
 cast_shadows = 0
 last_lod = 2
@@ -110,7 +113,7 @@ image = SubResource("Image_wc5p8")
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_i5arm"]
 name = "green-grass-1024x1024"
-albedo_texture = ExtResource("1_a0tk4")
+albedo_texture = ExtResource("4_85g3d")
 normal_texture = SubResource("ImageTexture_jka67")
 uv_scale = 1.0
 detiling_rotation = 0.1
@@ -131,7 +134,7 @@ image = SubResource("Image_jsk3o")
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_6iypd"]
 name = "broken-wood-ground-1024x1024"
 id = 1
-albedo_texture = ExtResource("2_r3fl7")
+albedo_texture = ExtResource("5_choun")
 normal_texture = SubResource("ImageTexture_4arys")
 uv_scale = 1.0
 detiling_rotation = 0.1
@@ -143,10 +146,6 @@ texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_
 
 [node name="Node3D" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a0tk4")
 camera_attributes = SubResource("CameraAttributesPractical_i5arm")
@@ -155,11 +154,12 @@ camera_attributes = SubResource("CameraAttributesPractical_i5arm")
 data_directory = "res://terrain"
 material = SubResource("Terrain3DMaterial_wc5p8")
 assets = SubResource("Terrain3DAssets_tcnuu")
+show_navigation = true
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("6_i5arm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.95789, 1.1110271, 94.93394)
+[node name="Player" parent="." instance=ExtResource("6_ya4ey")]
+transform = Transform3D(-0.911891, 0, 0.41043246, 0, 1, 0, -0.41043246, 0, -0.911891, -133.43384, 0.1549393, 98.22935)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.04552, 4.612915, 108.93906)
