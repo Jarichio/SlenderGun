@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dc0cc6221edw8"]
+[gd_scene format=3 uid="uid://dc0cc6221edw8"]
 
 [ext_resource type="Theme" uid="uid://1kmh3vu412g" path="res://resources/interface_theme.tres" id="1_wu84c"]
 [ext_resource type="Script" uid="uid://dje1umkx5b61l" path="res://scripts/menu.gd" id="2_8ln24"]
-[ext_resource type="PackedScene" uid="uid://cie4amabwd7l8" path="res://scenes/test.tscn" id="3_8ln24"]
+[ext_resource type="PackedScene" uid="uid://mgp02mkor0at" path="res://scenes/main.tscn" id="3_8ln24"]
 [ext_resource type="FontFile" uid="uid://c5rrunwfoewi5" path="res://art/fonts/Nosifer-Regular.ttf" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://cr5dieo6ipo0k" path="res://scripts/timer.gd" id="4_oa1go"]
 
@@ -16,7 +16,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Menu" type="PanelContainer"]
+[node name="Menu" type="PanelContainer" unique_id=1966987236]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,10 +27,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mhnvy")
 script = ExtResource("2_8ln24")
 scene_to_load = ExtResource("3_8ln24")
 
-[node name="VerticalBox" type="VBoxContainer" parent="."]
+[node name="VerticalBox" type="VBoxContainer" parent="." unique_id=212264273]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VerticalBox"]
+[node name="Label" type="Label" parent="VerticalBox" unique_id=96634929]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.733002, 2.7554854e-06, 6.738305e-07, 1)
@@ -39,16 +39,16 @@ theme_override_font_sizes/font_size = 86
 text = "SlenderGun"
 horizontal_alignment = 1
 
-[node name="Body" type="HBoxContainer" parent="VerticalBox"]
+[node name="Body" type="HBoxContainer" parent="VerticalBox" unique_id=2055546812]
 layout_mode = 2
 alignment = 1
 
-[node name="Inputs" type="VBoxContainer" parent="VerticalBox/Body"]
+[node name="Inputs" type="VBoxContainer" parent="VerticalBox/Body" unique_id=1103055619]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 12
 
-[node name="NameInput" type="LineEdit" parent="VerticalBox/Body/Inputs"]
+[node name="NameInput" type="LineEdit" parent="VerticalBox/Body/Inputs" unique_id=311038084]
 custom_minimum_size = Vector2(270, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -62,15 +62,15 @@ middle_mouse_paste_enabled = false
 select_all_on_focus = true
 caret_blink = true
 
-[node name="JoinVBox" type="VBoxContainer" parent="VerticalBox/Body/Inputs"]
+[node name="JoinVBox" type="VBoxContainer" parent="VerticalBox/Body/Inputs" unique_id=2099386644]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
 
-[node name="JoinHBox" type="HBoxContainer" parent="VerticalBox/Body/Inputs/JoinVBox"]
+[node name="JoinHBox" type="HBoxContainer" parent="VerticalBox/Body/Inputs/JoinVBox" unique_id=1773937782]
 layout_mode = 2
 
-[node name="IpInput" type="LineEdit" parent="VerticalBox/Body/Inputs/JoinVBox/JoinHBox"]
+[node name="IpInput" type="LineEdit" parent="VerticalBox/Body/Inputs/JoinVBox/JoinHBox" unique_id=437179779]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_4ytvr")
@@ -78,13 +78,13 @@ placeholder_text = "Host's IP"
 alignment = 1
 emoji_menu_enabled = false
 
-[node name="JoinButton" type="Button" parent="VerticalBox/Body/Inputs/JoinVBox/JoinHBox"]
+[node name="JoinButton" type="Button" parent="VerticalBox/Body/Inputs/JoinVBox/JoinHBox" unique_id=2106442240]
 custom_minimum_size = Vector2(66, 0)
 layout_mode = 2
 disabled = true
 text = "JOIN"
 
-[node name="ProgressBar" type="ProgressBar" parent="VerticalBox/Body/Inputs/JoinVBox"]
+[node name="ProgressBar" type="ProgressBar" parent="VerticalBox/Body/Inputs/JoinVBox" unique_id=1592550719]
 visible = false
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
@@ -92,11 +92,11 @@ show_percentage = false
 indeterminate = true
 editor_preview_indeterminate = false
 
-[node name="HostHBox" type="HBoxContainer" parent="VerticalBox/Body/Inputs"]
+[node name="HostHBox" type="HBoxContainer" parent="VerticalBox/Body/Inputs" unique_id=1772504912]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="PortInput" type="LineEdit" parent="VerticalBox/Body/Inputs/HostHBox"]
+[node name="PortInput" type="LineEdit" parent="VerticalBox/Body/Inputs/HostHBox" unique_id=1822074210]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_4ytvr")
@@ -104,59 +104,59 @@ placeholder_text = "Port"
 alignment = 1
 emoji_menu_enabled = false
 
-[node name="HostButton" type="Button" parent="VerticalBox/Body/Inputs/HostHBox"]
+[node name="HostButton" type="Button" parent="VerticalBox/Body/Inputs/HostHBox" unique_id=1180337833]
 custom_minimum_size = Vector2(66, 0)
 layout_mode = 2
 disabled = true
 text = "HOST"
 
-[node name="DisconnectButton" type="Button" parent="VerticalBox/Body/Inputs"]
+[node name="DisconnectButton" type="Button" parent="VerticalBox/Body/Inputs" unique_id=455669188]
 layout_mode = 2
 disabled = true
 text = "DISCONNECT"
 
-[node name="StartButton" type="Button" parent="VerticalBox/Body/Inputs"]
+[node name="StartButton" type="Button" parent="VerticalBox/Body/Inputs" unique_id=534010137]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 disabled = true
 text = "START GAME"
 
-[node name="EpicSpacer" type="Control" parent="VerticalBox/Body"]
+[node name="EpicSpacer" type="Control" parent="VerticalBox/Body" unique_id=728955740]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="LobbyList" type="PanelContainer" parent="VerticalBox/Body"]
+[node name="LobbyList" type="PanelContainer" parent="VerticalBox/Body" unique_id=1165618712]
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Aligner" type="VBoxContainer" parent="VerticalBox/Body/LobbyList"]
+[node name="Aligner" type="VBoxContainer" parent="VerticalBox/Body/LobbyList" unique_id=84116824]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TitleBar" type="HBoxContainer" parent="VerticalBox/Body/LobbyList/Aligner"]
+[node name="TitleBar" type="HBoxContainer" parent="VerticalBox/Body/LobbyList/Aligner" unique_id=1377951266]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="PlayerCounter" type="Label" parent="VerticalBox/Body/LobbyList/Aligner/TitleBar"]
+[node name="PlayerCounter" type="Label" parent="VerticalBox/Body/LobbyList/Aligner/TitleBar" unique_id=1325088399]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "0"
 
-[node name="Label" type="Label" parent="VerticalBox/Body/LobbyList/Aligner/TitleBar"]
+[node name="Label" type="Label" parent="VerticalBox/Body/LobbyList/Aligner/TitleBar" unique_id=6930934]
 layout_mode = 2
 size_flags_horizontal = 4
 text = " | "
 
-[node name="Timer" type="Label" parent="VerticalBox/Body/LobbyList/Aligner/TitleBar"]
+[node name="Timer" type="Label" parent="VerticalBox/Body/LobbyList/Aligner/TitleBar" unique_id=128271555]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "00:00"
 script = ExtResource("4_oa1go")
 active = false
 
-[node name="PlayerList" type="ItemList" parent="VerticalBox/Body/LobbyList/Aligner"]
+[node name="PlayerList" type="ItemList" parent="VerticalBox/Body/LobbyList/Aligner" unique_id=1855843129]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
