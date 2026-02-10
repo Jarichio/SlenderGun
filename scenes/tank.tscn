@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dg8kpasielbqu"]
+
+[ext_resource type="PackedScene" uid="uid://bmwbut0ii3cnt" path="res://art/meshes/tank.blend" id="1_qrxud"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dp3eg"]
+height = 113.960846
+radius = 18.072754
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0ld40"]
+height = 1.6763802
+radius = 19.362305
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gqmmt"]
+radius = 15.209498
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7ddy"]
+size = Vector3(54.10141, 6.7243376, 36.783142)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0loja"]
+size = Vector3(58.36367, 25.530693, 3.590744)
+
+[node name="Tank" type="Node3D" unique_id=974260157]
+
+[node name="tank2" parent="." unique_id=2038408829 instance=ExtResource("1_qrxud")]
+transform = Transform3D(-2.6226834e-08, 0, 0.5999999, 0, 0.5999999, 0, -0.5999999, 0, -2.6226834e-08, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tank2" unique_id=1551592510]
+
+[node name="Tank" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=1221229428]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 35.246357, -0.1015625)
+shape = SubResource("CylinderShape3D_dp3eg")
+
+[node name="Tank2" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=1668923936]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 35.246357, -55.723755)
+shape = SubResource("CylinderShape3D_0ld40")
+
+[node name="Tank3" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=1470775052]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 35.246357, 55.680054)
+shape = SubResource("CylinderShape3D_0ld40")
+
+[node name="Tank4" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=1402646719]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 35.246357, -0.29797363)
+shape = SubResource("CylinderShape3D_0ld40")
+
+[node name="Tank5" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=650965305]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 35.246357, 54.49109)
+shape = SubResource("SphereShape3D_gqmmt")
+
+[node name="Tank6" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=233271493]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 35.246357, -54.22998)
+shape = SubResource("SphereShape3D_gqmmt")
+
+[node name="Tank7" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=810687322]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.114990234, 17.354782, -37.33557)
+shape = SubResource("BoxShape3D_o7ddy")
+
+[node name="Tank8" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=1193603571]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.114990234, 17.354782, 37.110107)
+shape = SubResource("BoxShape3D_o7ddy")
+
+[node name="Tank9" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=1539343794]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.05065918, 0.75858384, 37.452515)
+shape = SubResource("BoxShape3D_0loja")
+
+[node name="Tank10" type="CollisionShape3D" parent="tank2/StaticBody3D" unique_id=642067481]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.05065918, 0.75858384, -37.354004)
+shape = SubResource("BoxShape3D_0loja")
